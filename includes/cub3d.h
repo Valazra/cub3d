@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:55:05 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:04:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ typedef struct s_data_mlx
 	int		rotate_right;
 	int		width;
 	int		height;
-	void	*img2;
-	int		*addr2;
 }			t_data_mlx;
 
 typedef struct s_data
@@ -152,7 +150,7 @@ int		ft_first_last_carac(t_data *data);
 int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
 
-//UTILS
+//GLOBAL_UTILS
 int		ft_count_digits_after_point(char *str);
 int		ft_count_nb_virgule(const char *str);
 int		ft_charinstr(char *str, char c);

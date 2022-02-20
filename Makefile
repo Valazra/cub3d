@@ -19,7 +19,7 @@ PARSING = parsing_file.c parsing_rfc.c parsing_rfc2.c parsing_textures.c \
 INIT = init_data.c init_data_ray.c init_render.c init_mlx.c
 GET_NEXT_LINE = get_next_line.c get_next_line_utils.c gnl_str_free.c 
 ERROR = ft_error.c ft_exit.c parsing_errors.c
-UTILS = ft_charinstr.c ft_count_digits_after_point.c ft_count_nb_virgule.c
+GLOBAL_UTILS = ft_charinstr.c ft_count_digits_after_point.c ft_count_nb_virgule.c
 RAYCAST = keys_draw.c raycasting_utils.c raycasting_move.c
 
 SRCS = $(addprefix srcs/, $(MAIN)) \
@@ -28,7 +28,7 @@ SRCS = $(addprefix srcs/, $(MAIN)) \
 	$(addprefix srcs/get_next_line/, $(GET_NEXT_LINE)) \
 	$(addprefix srcs/error/, $(ERROR)) \
 	$(addprefix srcs/raycast/, $(RAYCAST)) \
-	$(addprefix srcs/utils/, $(UTILS))
+	$(addprefix srcs/global_utils/, $(GLOBAL_UTILS))
 
 # Object files
 OBJ = $(SRCS:.c=.o)

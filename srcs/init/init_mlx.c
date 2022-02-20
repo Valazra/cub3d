@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:20:26 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:08:26 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:04:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,5 @@ int	init_mlx(t_data *data)
 		&data->data_mlx.endian);
 	data->data_mlx.mlx_win = mlx_new_window(data->data_mlx.mlx_ptr,
 		data->rx, data->ry, "cub3D");
-	data->data_mlx.img2 = mlx_new_image(data->data_mlx.mlx_ptr, data->rx, data->ry);
-	data->data_mlx.addr2 = (int *)mlx_get_data_addr(data->data_mlx.img2,
-		&data->data_mlx.bits_per_pixel, &data->data_mlx.line_length,
-		&data->data_mlx.endian);
 	return (0);
 }
