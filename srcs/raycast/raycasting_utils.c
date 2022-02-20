@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:27:00 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:38:34 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:37:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_drawstartend(t_data *data)
 {
 	if (data->ray.side == 0)
-		data->ray.perpwalldist = ((double)data->ray.mapx - data->ray.posx \
+		data->ray.perpwalldist = ((double)data->ray.mapx - data->ray.posx
 			+ (1 - (double)data->ray.stepx) / 2) / data->ray.raydirx;
 	else
-		data->ray.perpwalldist = ((double)data->ray.mapy - data->ray.posy \
+		data->ray.perpwalldist = ((double)data->ray.mapy - data->ray.posy
 			+ (1 - (double)data->ray.stepy) / 2) / data->ray.raydiry;
 	data->ray.lineheight = (int)(data->ry / data->ray.perpwalldist);
 	data->ray.drawstart = -data->ray.lineheight / 2 + data->ry / 2;
@@ -56,25 +56,25 @@ void	ft_stepsidedist(t_data *data)
 	if (data->ray.raydirx < 0)
 	{
 		data->ray.stepx = -1;
-		data->ray.sidedistx = (data->ray.posx - data->ray.mapx) \
+		data->ray.sidedistx = (data->ray.posx - data->ray.mapx)
 							* data->ray.deltadistx;
 	}
 	else
 	{
 		data->ray.stepx = 1;
-		data->ray.sidedistx = (data->ray.mapx + 1.0 - data->ray.posx) \
+		data->ray.sidedistx = (data->ray.mapx + 1.0 - data->ray.posx)
 							* data->ray.deltadistx;
 	}
 	if (data->ray.raydiry < 0)
 	{
 		data->ray.stepy = -1;
-		data->ray.sidedisty = (data->ray.posy - data->ray.mapy) \
+		data->ray.sidedisty = (data->ray.posy - data->ray.mapy)
 							* data->ray.deltadisty;
 	}
 	else
 	{
 		data->ray.stepy = 1;
-		data->ray.sidedisty = (data->ray.mapy + 1.0 - data->ray.posy) \
+		data->ray.sidedisty = (data->ray.mapy + 1.0 - data->ray.posy)
 							* data->ray.deltadisty;
 	}
 	ft_incrementray(data);

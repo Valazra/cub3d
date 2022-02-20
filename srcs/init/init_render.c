@@ -6,13 +6,13 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:22:35 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:36:23 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:11:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_init2_more(t_data *data)
+void	ft_init_start_direction(t_data *data)
 {
 	if (data->depart == 'N')
 		data->ray.dirx = -1;
@@ -32,7 +32,7 @@ void	ft_init2_more(t_data *data)
 		data->ray.planx = -0.66;
 }
 
-void	ft_initialisation2(t_data *data)
+void	ft_init_render(t_data *data)
 {
 	data->data_mlx.forward = 0;
 	data->data_mlx.back = 0;
@@ -46,6 +46,6 @@ void	ft_initialisation2(t_data *data)
 	data->ray.diry = 0;
 	data->ray.planx = 0;
 	data->ray.plany = 0;
-	ft_init2_more(data);
+	ft_init_start_direction(data);
 }
 

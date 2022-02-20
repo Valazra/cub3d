@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:33:03 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:07:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_raycasting(t_data *data)
 	data->ray.x = 0;
 	while (data->ray.x < data->rx)
 	{
-		ft_initialisation3(data);
+		ft_init_data_ray(data);
 		ft_stepsidedist(data);
 		ft_color_column(data);
 		data->ray.x++;

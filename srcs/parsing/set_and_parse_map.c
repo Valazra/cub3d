@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:31 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:39:52 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:29:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,6 @@ int	ft_copy_map(char *str, t_data *data)
 	return (0);
 }
 
-void	ft_start_parsing_map(t_data *data, char *str)
-{
-	if (data->insidemap == 1 && ft_emptyline(str) == 1 \
-			&& data->count < data->nblines)
-		data->emptyline = 1;
-	data->insidemap = ft_is_map(str, data);
-	if (data->insidemap == 1)
-	{
-		data->count++;
-		ft_copy_map(str, data);
-	}
-	free(str);
-}
-
 //check si on est dans la map
 int	ft_is_map(char *str, t_data *data)
 {
@@ -98,25 +84,38 @@ int	ft_is_map(char *str, t_data *data)
 	return (0);
 }
 
-//va incrementer nb_lines a chaque appel (gnl) et va mettre dans sizeline
-//la taille de la plus grande ligne de la map
-void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data)
+void	ft_parsing_map(t_data *data, char *str)
 {
-	int			i;
-	static int	snblines = 0;
-	static int	ssizeline = 0;
-
-	i = 0;
-	if (ft_is_map(str, data) == 1)
+	if (data->insidemap == 1 && ft_emptyline(str) == 1
+			&& data->count < data->nblines)
+		data->emptyline = 1;
+	data->insidemap = ft_is_map(str, data);
+	if (data->insidemap == 1)
 	{
-		if (data->f == -1 || data->c == -1 || data->no == NULL || \
-			data->so == NULL || data->we == NULL || data->ea == NULL)
-			ft_error(data, "Error\nInformations missing\n");
-		i = ft_strlen(str);
-		if (i > ssizeline)
-			ssizeline = i;
-		snblines = snblines + 1;
+		data->count++;
+		ft_copy_map(str, data);
 	}
-	data->nblines = snblines;
-	data->sizeline = ssizeline;
+	free(str);
+}
+
+int	ft_set_map(char *fichier, t_data *data)
+{
+	int		fd;
+	int		ret;
+	char	*str;
+
+	ret = 1;
+	str = NULL;
+	fd = open(fichier, O_RDONLY);
+	data->map = malloc(sizeof(char *) * data->nblines);
+	if (!(data->map))
+		return (0);
+	while (ret != 0)
+	{
+		ret = get_next_line(fd, &str);
+		ft_parsing_map(data, str);
+	}
+	close(fd);
+	ft_parsing_errors(data);
+	return (0);
 }

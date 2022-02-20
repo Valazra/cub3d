@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:40:20 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:30:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_atoi2(const char *str, t_data *data)
 	return (sum);
 }
 
-void	ft_data_rfc2(char *str, t_data *data, int i)
+void	ft_recup_rfc2(char *str, t_data *data, int i)
 {
 	if (str[i] == 'R')
 	{
@@ -82,7 +82,7 @@ void	ft_data_rfc2(char *str, t_data *data, int i)
 	}
 }
 
-void	ft_data_rfc(char *str, t_data *data)
+void	ft_recup_rfc(char *str, t_data *data)
 {
 	int	i;
 
@@ -90,8 +90,8 @@ void	ft_data_rfc(char *str, t_data *data)
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
 	data->i = i + 1;
-	if (data->sizeline > 0 && (data->no == NULL || data->so == NULL \
+	if (data->sizeline > 0 && (data->no == NULL || data->so == NULL
 		|| data->we == NULL || data->ea == NULL))
 		ft_error(data, "Error\nProblem of parsing\n");
-	ft_data_rfc2(str, data, i);
+	ft_recup_rfc2(str, data, i);
 }

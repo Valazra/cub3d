@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:05:04 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:34:50 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:04:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_init_more(t_data *data)
 	data->map = NULL;
 }
 
-void	ft_initialisation(t_data *data)
+void	ft_init_data(t_data *data)
 {
 	data->no = NULL;
 	data->so = NULL;

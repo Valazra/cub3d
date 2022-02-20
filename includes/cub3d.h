@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:41:33 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:22:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,12 +134,11 @@ int		get_next_line(int fd, char **line);
 
 //PARSING
 int		ft_parsing_file_name(char *str, t_data *data);
-void	ft_data_rfc(char *str, t_data *data);
+int		ft_set_map(char *fichier, t_data *data);
+void	ft_recup_rfc(char *str, t_data *data);
 int		ft_atoi3(const char *str, t_data *data);
 void	ft_atoi3_check(const char *str, t_data *data);
 void	ft_parsing_texture(char *str, t_data *data);
-void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data);
-void	ft_start_parsing_map(t_data *data, char *str);
 int		ft_is_map(char *str, t_data *data);
 int		ft_copy_map(char *str, t_data *data);
 int		ft_emptyline(char *str);
@@ -158,9 +157,9 @@ int		ft_nb_virgule(const char *str);
 int		ft_charinstr(char *str, char c);
 
 //INIT
-void	ft_initialisation(t_data *data);
-void	ft_initialisation2(t_data *data);
-void	ft_initialisation3(t_data *data);
+void	ft_init_data(t_data *data);
+void	ft_init_render(t_data *data);
+void	ft_init_data_ray(t_data *data);
 int		init_mlx(t_data *data);
 
 //ERROR
