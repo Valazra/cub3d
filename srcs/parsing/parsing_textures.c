@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:52:15 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:30:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_parsing_texture(char *str, t_data *data)
 		|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->ea, data, i + 2);
 	else if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
-		&& str[i] != 'R' && str[i] != 'F' && str[i] != 'C'
+		&& str[i] != 'F' && str[i] != 'C'
 			&& str[i] > 65 && str[i] < 122)
 		ft_error(data, "Error\nBad id\n");
 	ft_exceptions(str, data, i);

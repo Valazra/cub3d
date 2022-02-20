@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:27:00 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:37:01 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:23:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	ft_drawstartend(t_data *data)
 	else
 		data->ray.perpwalldist = ((double)data->ray.mapy - data->ray.posy
 			+ (1 - (double)data->ray.stepy) / 2) / data->ray.raydiry;
-	data->ray.lineheight = (int)(data->ry / data->ray.perpwalldist);
-	data->ray.drawstart = -data->ray.lineheight / 2 + data->ry / 2;
+	data->ray.lineheight = (int)(data->res_y / data->ray.perpwalldist);
+	data->ray.drawstart = -data->ray.lineheight / 2 + data->res_y / 2;
 	if (data->ray.drawstart < 0)
 		data->ray.drawstart = 0;
-	data->ray.drawend = data->ray.lineheight / 2 + data->ry / 2;
-	if (data->ray.drawend >= data->ry || data->ray.drawend < 0)
-		data->ray.drawend = data->ry - 1;
+	data->ray.drawend = data->ray.lineheight / 2 + data->res_y / 2;
+	if (data->ray.drawend >= data->res_y || data->ray.drawend < 0)
+		data->ray.drawend = data->res_y - 1;
 }
 
 void	ft_incrementray(t_data *data)

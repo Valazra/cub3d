@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:35:42 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:06:23 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:22:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_init_data_ray(t_data *data)
 {
 	data->ray.hit = 0;
 	data->ray.perpwalldist = 0;
-	data->ray.camerax = 2 * data->ray.x / (double)data->rx - 1;
+	data->ray.camerax = 2 * data->ray.x / (double)data->res_x - 1;
 	data->ray.raydirx = data->ray.dirx + data->ray.planx \
 		* data->ray.camerax;
 	data->ray.raydiry = data->ray.diry + data->ray.plany \

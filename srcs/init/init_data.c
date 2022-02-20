@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:05:04 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:04:32 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:22:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_init_data(t_data *data)
 	data->ea = NULL;
 	data->f = -1;
 	data->c = -1;
-	data->rx = 0;
-	data->ry = 0;
+	data->res_x = 0;
+	data->res_y = 0;
 	data->nblines = 0;
 	data->sizeline = 0;
 	data->dx = 0;

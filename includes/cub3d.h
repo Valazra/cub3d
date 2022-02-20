@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:12:16 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:18:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ typedef struct s_data_mlx
 
 typedef struct s_data
 {
-	int		rx;
-	int		ry;
+	int		res_x;
+	int		res_y;
 	int		i;
 	int		f;
 	int		c;
@@ -111,8 +111,6 @@ typedef struct s_data
 	int		indicateur;
 	int		indicateur2;
 	int		indicateur3;
-	int		screenx;
-	int		screeny;
 	int		error;
 	int		multiplayer;
 	int		emptyline;
