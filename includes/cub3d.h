@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:04:40 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:12:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,11 @@ typedef struct s_data
 	t_text	t;
 }			t_data;
 
+//GLOBAL_UTILS
+int		ft_count_digits_after_point(char *str);
+int		ft_count_nb_virgule(const char *str);
+int		ft_charinstr(char *str, char c);
+
 //GNL
 int		get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *s);
@@ -135,6 +140,12 @@ char	*ft_strdup(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin_free(char *s1, char *s2);
 int		ft_str_free(char *s);
+
+//INIT
+void	ft_init_data(t_data *data);
+void	ft_init_render(t_data *data);
+void	ft_init_data_ray(t_data *data);
+int		init_mlx(t_data *data);
 
 //PARSING
 int		ft_parsing_file_name(char *str, t_data *data);
@@ -150,34 +161,19 @@ int		ft_first_last_carac(t_data *data);
 int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
 
-//GLOBAL_UTILS
-int		ft_count_digits_after_point(char *str);
-int		ft_count_nb_virgule(const char *str);
-int		ft_charinstr(char *str, char c);
-
-//INIT
-void	ft_init_data(t_data *data);
-void	ft_init_render(t_data *data);
-void	ft_init_data_ray(t_data *data);
-int		init_mlx(t_data *data);
-
-//ERROR
-void	ft_error(t_data *data, char *str);
-int		ft_exit(t_data *data);
-void	ft_parsing_errors(t_data *data);
-
-//MLX
-int		ft_key_press(int keycode, t_data *data);
-int		ft_key_release(int keycode, t_data *data);
-
 //RAYCAST
 int		ft_raycasting(t_data *data);
-void	ft_get_texture(t_data *data);
 void	ft_stepsidedist(t_data *data);
 int		ft_color_column(t_data *data);
 void	ft_forward_back(t_data *data);
 void	ft_left_right(t_data *data);
 void	ft_rotate_right_left(t_data *data);
-void	ft_swap(t_data *data);
+int		ft_key_press(int keycode, t_data *data);
+int		ft_key_release(int keycode, t_data *data);
+
+//ERROR
+void	ft_error(t_data *data, char *str);
+int		ft_exit(t_data *data);
+void	ft_parsing_errors(t_data *data);
 
 #endif
