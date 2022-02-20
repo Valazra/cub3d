@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:30:03 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:48:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 			ft_error(data, "Error\nProblem with start of path\n");
 		i++;
 	}
-	*texture = (char *)(malloc(sizeof(char) * (ft_count_digits_after_point(str) + 1)));
+	*texture = (char *)(malloc(sizeof(char)
+				* (ft_count_digits_after_point(str) + 1)));
 	if (!(*texture))
 		ft_error(data, "Error\nProblem with textures malloc\n");
 	while (str[i] != '\0')
@@ -71,20 +72,20 @@ void	ft_parsing_texture(char *str, t_data *data)
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (str[i] == 'S' && str[i + 1] == 'O' && (str[i + 2] == ' '
-		|| str[i + 2] == '\t'))
+			|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->no, data, i + 2);
 	else if (str[i] == 'N' && str[i + 1] == 'O' && (str[i + 2] == ' '
-		|| str[i + 2] == '\t'))
+			|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->so, data, i + 2);
 	else if (str[i] == 'E' && str[i + 1] == 'A' && (str[i + 2] == ' '
-		|| str[i + 2] == '\t'))
+			|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->we, data, i + 2);
 	else if (str[i] == 'W' && str[i + 1] == 'E' && (str[i + 2] == ' '
-		|| str[i + 2] == '\t'))
+			|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->ea, data, i + 2);
 	else if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
 		&& str[i] != 'F' && str[i] != 'C'
-			&& str[i] > 65 && str[i] < 122)
+		&& str[i] > 65 && str[i] < 122)
 		ft_error(data, "Error\nBad id\n");
 	ft_exceptions(str, data, i);
 }

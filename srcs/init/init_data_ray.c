@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:35:42 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:22:36 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:44:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	ft_init_data_ray(t_data *data)
 	else if (data->ray.raydirx == 0)
 		data->ray.deltadistx = 1;
 	else
-		data->ray.deltadistx = sqrt(1 + (data->ray.raydiry
-			* data->ray.raydiry) / (data->ray.raydirx * data->ray.raydirx));
+		data->ray.deltadistx = sqrt(1 + (data->ray.raydiry * data->ray.raydiry)
+				/ (data->ray.raydirx * data->ray.raydirx));
 	if (data->ray.raydirx == 0)
 		data->ray.deltadisty = 0;
 	else if (data->ray.raydiry == 0)
 		data->ray.deltadisty = 1;
 	else
-		data->ray.deltadisty = sqrt(1 + (data->ray.raydirx * data->ray.raydirx) / (data->ray.raydiry * data->ray.raydiry));
+		data->ray.deltadisty = sqrt(1 + (data->ray.raydirx * data->ray.raydirx)
+				/ (data->ray.raydiry * data->ray.raydiry));
 }
-

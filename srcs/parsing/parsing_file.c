@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:40 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:38:14 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:49:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data)
 	i = 0;
 	if (ft_is_map(str, data) == 1)
 	{
-		if (data->f == -1 || data->c == -1 || data->no == NULL ||
-			data->so == NULL || data->we == NULL || data->ea == NULL)
+		if (data->f == -1 || data->c == -1 || data->no == NULL
+			|| data->so == NULL || data->we == NULL || data->ea == NULL)
 			ft_error(data, "Error\nInformations missing\n");
 		i = ft_strlen(str);
 		if (i > ssizeline)

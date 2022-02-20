@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:37:51 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:39:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,36 +93,36 @@ typedef struct s_data_mlx
 
 typedef struct s_data
 {
-	int		res_x;
-	int		res_y;
-	int		i;
-	int		f;
-	int		c;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		nblines;
-	int		sizeline;
-	char	**map;
-	char	depart;
-	int		dx;
-	int		dy;
-	int		indicateur;
-	int		indicateur2;
-	int		indicateur3;
-	int		error;
-	int		multiplayer;
-	int		emptyline;
-	int		insidemap;
-	int		count;
-	int		count2;
-	int		sum;
-	int		wrongcharmap;
+	int			res_x;
+	int			res_y;
+	int			i;
+	int			f;
+	int			c;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	int			nblines;
+	int			sizeline;
+	char		**map;
+	char		depart;
+	int			dx;
+	int			dy;
+	int			indicateur;
+	int			indicateur2;
+	int			indicateur3;
+	int			error;
+	int			multiplayer;
+	int			emptyline;
+	int			insidemap;
+	int			count;
+	int			count2;
+	int			sum;
+	int			wrongcharmap;
 	t_data_mlx	texture[4];
 	t_data_mlx	data_mlx;
-	t_ray	ray;
-	t_text	t;
+	t_ray		ray;
+	t_text		t;
 }			t_data;
 
 //GLOBAL_UTILS

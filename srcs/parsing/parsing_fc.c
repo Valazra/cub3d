@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:38:01 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:47:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_recup_fc(char *str, t_data *data)
 		i++;
 	data->i = i + 1;
 	if (data->sizeline > 0 && (data->no == NULL || data->so == NULL
-		|| data->we == NULL || data->ea == NULL))
+			|| data->we == NULL || data->ea == NULL))
 		ft_error(data, "Error\nProblem of parsing\n");
 	if (str[i] == 'F')
 	{

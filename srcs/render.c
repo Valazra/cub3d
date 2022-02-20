@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:21:02 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:41:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_draw_texture(t_data *data, int x, int y)
 	ft_init_texture(data);
 	data->t.step = 1.0 * data->texture[0].height / data->ray.lineheight;
 	data->t.texx = (int)(data->t.wallx
-		* (double)data->texture[data->t.texdir].width);
+			* (double)data->texture[data->t.texdir].width);
 	if (data->ray.side == 0 && data->ray.raydirx > 0)
 		data->t.texx = data->texture[data->t.texdir].width
 			- data->t.texx - 1;
@@ -45,17 +45,17 @@ void	ft_draw_texture(t_data *data, int x, int y)
 		data->t.texx = data->texture[data->t.texdir].width
 			- data->t.texx - 1;
 	data->t.texpos = (data->ray.drawstart - data->res_y / 2
-		+ data->ray.lineheight / 2) * data->t.step;
+			+ data->ray.lineheight / 2) * data->t.step;
 	while (++y <= data->ray.drawend)
 	{
 		data->t.texy = (int)data->t.texpos \
 			&(data->texture[data->t.texdir].height - 1);
 		data->t.texpos += data->t.step;
 		if (y < data->res_y && x < data->res_x)
-			data->data_mlx.addr[y * data->data_mlx.line_length / 4 + x] =
-				data->texture[data->t.texdir].addr[data->t.texy
+			data->data_mlx.addr[y * data->data_mlx.line_length / 4 + x]
+				= data->texture[data->t.texdir].addr[data->t.texy
 				* data->texture[data->t.texdir].line_length / 4
-					+ data->t.texx];
+				+ data->t.texx];
 	}
 }
 
@@ -96,4 +96,3 @@ int	ft_raycasting(t_data *data)
 	ft_rotate_right_left(data);
 	return (0);
 }
-

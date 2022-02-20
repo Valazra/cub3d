@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:22:35 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:11:03 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:44:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ void	ft_init_render(t_data *data)
 	data->ray.plany = 0;
 	ft_init_start_direction(data);
 }
-

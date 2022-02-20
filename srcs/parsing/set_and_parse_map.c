@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map.c                                      :+:      :+:    :+:   */
+/*   set_and_parse_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:31 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:29:46 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:46:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_is_map(char *str, t_data *data)
 void	ft_parsing_map(t_data *data, char *str)
 {
 	if (data->insidemap == 1 && ft_emptyline(str) == 1
-			&& data->count < data->nblines)
+		&& data->count < data->nblines)
 		data->emptyline = 1;
 	data->insidemap = ft_is_map(str, data);
 	if (data->insidemap == 1)
