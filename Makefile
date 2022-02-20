@@ -1,0 +1,54 @@
+NAME = cub3d
+
+# Compile
+CC = clang
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+MLXFLAGS = -lmlx -lXext -lX11 -lm -lbsd
+INC = -I$(INC_DIR)
+HEADER = $(INC_DIR)/cub3d.h
+
+# Location
+MLX_DIR = minilibx_linux
+INC_DIR = includes
+SRCS_DIR = srcs
+
+# Source files 
+MAIN = main.c render.c
+PARSING = parsing.c parsing_rfc.c parsing_rfc2.c parsing_textures.c \
+		parsing_map.c parsing_map2.c parsing_map3.c 
+INIT = init_data.c init_data_ray.c init_render.c init_mlx.c
+GET_NEXT_LINE = get_next_line.c get_next_line_utils.c 
+ERROR = errors.c 
+UTILS = utils.c
+RAYCAST = keys_draw.c raycasting_utils.c raycasting_move.c raycasting.c
+
+SRCS = $(addprefix srcs/, $(MAIN)) \
+	$(addprefix srcs/parsing/, $(PARSING)) \
+	$(addprefix srcs/init/, $(INIT)) \
+	$(addprefix srcs/get_next_line/, $(GET_NEXT_LINE)) \
+	$(addprefix srcs/error/, $(ERROR)) \
+	$(addprefix srcs/raycast/, $(RAYCAST)) \
+	$(addprefix srcs/utils/, $(UTILS))
+
+# Object files
+OBJ = $(SRCS:.c=.o)
+
+# Pattern rule
+$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c ${HEADER}
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+# Rules
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	${CC} $(CFLAGS) $(INC) -o $(NAME) $(OBJ) -L $(MLX_DIR) $(MLXFLAGS)
+
+clean:
+	rm -rf $(OBJ)
+
+fclean:	clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all, clean, fclean, re, make
