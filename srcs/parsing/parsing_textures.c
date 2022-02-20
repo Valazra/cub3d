@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:35:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:52:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 	data->count2 = 0;
 	if (*texture != NULL)
 		ft_error(data, "Error\nToo many ids\n");
-	if (ft_charinstr(str, '.') == 0 || ft_charinstr(str, '/') == 0 \
-		|| ft_strlen2(str) <= 2)
+	if (ft_charinstr(str, '.') == 0 || ft_charinstr(str, '/') == 0
+		|| ft_count_digits_after_point(str) <= 2)
 		ft_error(data, "Error\nProblem with path of ids\n");
 	while (str[i] != '.')
 	{
@@ -50,7 +50,7 @@ int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 			ft_error(data, "Error\nProblem with start of path\n");
 		i++;
 	}
-	*texture = (char *)(malloc(sizeof(char) * (ft_strlen2(str) + 1)));
+	*texture = (char *)(malloc(sizeof(char) * (ft_count_digits_after_point(str) + 1)));
 	if (!(*texture))
 		ft_error(data, "Error\nProblem with textures malloc\n");
 	while (str[i] != '\0')

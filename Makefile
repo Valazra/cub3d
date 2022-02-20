@@ -17,9 +17,9 @@ MAIN = main.c render.c
 PARSING = parsing_file.c parsing_rfc.c parsing_rfc2.c parsing_textures.c \
 		set_and_parse_map.c check_map.c check_surround.c 
 INIT = init_data.c init_data_ray.c init_render.c init_mlx.c
-GET_NEXT_LINE = get_next_line.c get_next_line_utils.c 
-ERROR = errors.c parsing_errors.c
-UTILS = utils.c
+GET_NEXT_LINE = get_next_line.c get_next_line_utils.c gnl_str_free.c 
+ERROR = ft_error.c ft_exit.c parsing_errors.c
+UTILS = ft_charinstr.c ft_count_digits_after_point.c ft_count_nb_virgule.c
 RAYCAST = keys_draw.c raycasting_utils.c raycasting_move.c
 
 SRCS = $(addprefix srcs/, $(MAIN)) \

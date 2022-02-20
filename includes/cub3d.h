@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 12:22:43 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:55:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,12 @@ typedef struct s_data
 
 //GNL
 int		get_next_line(int fd, char **line);
+size_t	ft_strlen(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_strjoin_free(char *s1, char *s2);
+int		ft_str_free(char *s);
 
 //PARSING
 int		ft_parsing_file_name(char *str, t_data *data);
@@ -145,15 +151,10 @@ int		ft_emptyline(char *str);
 int		ft_first_last_carac(t_data *data);
 int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
-void	ft_parsing_errors(t_data *data);
 
 //UTILS
-int		ft_strlen(const char *str);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
-int		ft_strlen2(char *str);
-int		ft_nb_virgule(const char *str);
+int		ft_count_digits_after_point(char *str);
+int		ft_count_nb_virgule(const char *str);
 int		ft_charinstr(char *str, char c);
 
 //INIT
@@ -165,6 +166,7 @@ int		init_mlx(t_data *data);
 //ERROR
 void	ft_error(t_data *data, char *str);
 int		ft_exit(t_data *data);
+void	ft_parsing_errors(t_data *data);
 
 //MLX
 int		ft_key_press(int keycode, t_data *data);

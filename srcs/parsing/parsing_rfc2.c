@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:40:06 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 12:53:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_atoi3_check2(const char *str, t_data *data, int i, int j)
 	}
 	if (j != 2)
 		ft_error(data, "Error\nProblem with F or C\n");
-	if (ft_nb_virgule(str) != 2)
+	if (ft_count_nb_virgule(str) != 2)
 		ft_error(data, "Error\nProblem of comma with F or C\n");
 }
 
