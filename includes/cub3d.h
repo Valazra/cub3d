@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 14:57:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 15:25:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ typedef struct s_data
 {
 	int			res_x;
 	int			res_y;
-	int			i;
 	int			f;
 	int			c;
 	char		*no;
@@ -105,6 +104,10 @@ typedef struct s_data
 	int			nblines;
 	int			sizeline;
 	char		**map;
+	int			i;
+	int			count;
+	int			set_texture;
+	int			sum;
 	char		depart;
 	int			pos_x;
 	int			pos_y;
@@ -113,9 +116,6 @@ typedef struct s_data
 	int			multiplayer;
 	int			emptyline;
 	int			insidemap;
-	int			count;
-	int			count2;
-	int			sum;
 	int			wrongcharmap;
 	t_data_mlx	texture[4];
 	t_data_mlx	data_mlx;
