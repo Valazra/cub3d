@@ -6,31 +6,31 @@
 /*   By: vazra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:39:28 by vazra             #+#    #+#             */
-/*   Updated: 2022/02/20 11:25:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 11:32:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	start_mlx(t_recup *recup)
+void	start_mlx(t_data *data)
 {
-	mlx_hook(recup->data.mlx_win, 33, 1L << 17, ft_exit, recup);
-	mlx_hook(recup->data.mlx_win, 2, 1L << 0, ft_key_press, recup);
-	mlx_loop_hook(recup->data.mlx_ptr, ft_raycasting, recup);
-	mlx_hook(recup->data.mlx_win, 3, 1L << 1, ft_key_release, recup);
-	mlx_loop(recup->data.mlx_ptr);
+	mlx_hook(data->data_mlx.mlx_win, 33, 1L << 17, ft_exit, data);
+	mlx_hook(data->data_mlx.mlx_win, 2, 1L << 0, ft_key_press, data);
+	mlx_loop_hook(data->data_mlx.mlx_ptr, ft_raycasting, data);
+	mlx_hook(data->data_mlx.mlx_win, 3, 1L << 1, ft_key_release, data);
+	mlx_loop(data->data_mlx.mlx_ptr);
 }
 
 int	main(int argc, char **argv)
 {
-	t_recup	recup;
+	t_data	data;
 
-	ft_initialisation(&recup);
+	ft_initialisation(&data);
 	if (argc == 2)
-		ft_parsing_file_name(argv[1], &recup);
+		ft_parsing_file_name(argv[1], &data);
 	else
-		ft_error(&recup, "Error\nBad number of args\n");
-	ft_initialisation2(&recup);
-	init_mlx(&recup);
-	start_mlx(&recup);
+		ft_error(&data, "Error\nBad number of args\n");
+	ft_initialisation2(&data);
+	init_mlx(&data);
+	start_mlx(&data);
 }

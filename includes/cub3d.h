@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:24:18 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 11:41:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_ray
 	int		texture;
 }			t_ray;
 
-typedef struct s_data
+typedef struct s_data_mlx
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -91,9 +91,9 @@ typedef struct s_data
 	int		height;
 	void	*img2;
 	int		*addr2;
-}			t_data;
+}			t_data_mlx;
 
-typedef struct s_recup
+typedef struct s_data
 {
 	int		rx;
 	int		ry;
@@ -123,30 +123,30 @@ typedef struct s_recup
 	int		count2;
 	int		sum;
 	int		wrongcharmap;
-	t_data	texture[4];
-	t_data	data;
+	t_data_mlx	texture[4];
+	t_data_mlx	data_mlx;
 	t_ray	ray;
 	t_text	t;
-}			t_recup;
+}			t_data;
 
 //GNL
 int		get_next_line(int fd, char **line);
 
 //PARSING
-int		ft_parsing_file_name(char *str, t_recup *recup);
-void	ft_recup_rfc(char *str, t_recup *recup);
-int		ft_atoi3(const char *str, t_recup *recup);
-void	ft_atoi3_check(const char *str, t_recup *recup);
-void	ft_parsing_texture(char *str, t_recup *recup);
-void	ft_count_size_and_nb_lines_of_map(char *str, t_recup *recup);
-void	ft_start_parsing_map(t_recup *recup, char *str);
-int		ft_is_map(char *str, t_recup *recup);
-int		ft_copy_map(char *str, t_recup *recup);
+int		ft_parsing_file_name(char *str, t_data *data);
+void	ft_data_rfc(char *str, t_data *data);
+int		ft_atoi3(const char *str, t_data *data);
+void	ft_atoi3_check(const char *str, t_data *data);
+void	ft_parsing_texture(char *str, t_data *data);
+void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data);
+void	ft_start_parsing_map(t_data *data, char *str);
+int		ft_is_map(char *str, t_data *data);
+int		ft_copy_map(char *str, t_data *data);
 int		ft_emptyline(char *str);
-int		ft_first_last_carac(t_recup *recup);
-int		ft_first_line(t_recup *recup);
-int		ft_surround(t_recup *recup);
-void	ft_parsing_errors(t_recup *recup);
+int		ft_first_last_carac(t_data *data);
+int		ft_first_line(t_data *data);
+int		ft_surround(t_data *data);
+void	ft_parsing_errors(t_data *data);
 
 //UTILS
 int		ft_strlen(const char *str);
@@ -158,27 +158,27 @@ int		ft_nb_virgule(const char *str);
 int		ft_charinstr(char *str, char c);
 
 //INIT
-void	ft_initialisation(t_recup *recup);
-void	ft_initialisation2(t_recup *recup);
-void	ft_initialisation3(t_recup *recup);
-int		init_mlx(t_recup *recup);
+void	ft_initialisation(t_data *data);
+void	ft_initialisation2(t_data *data);
+void	ft_initialisation3(t_data *data);
+int		init_mlx(t_data *data);
 
 //ERROR
-void	ft_error(t_recup *recup, char *str);
-int		ft_exit(t_recup *recup);
+void	ft_error(t_data *data, char *str);
+int		ft_exit(t_data *data);
 
 //MLX
-int		ft_key_press(int keycode, t_recup *recup);
-int		ft_key_release(int keycode, t_recup *recup);
+int		ft_key_press(int keycode, t_data *data);
+int		ft_key_release(int keycode, t_data *data);
 
 //RAYCAST
-int		ft_raycasting(t_recup *recup);
-void	ft_get_texture(t_recup *recup);
-void	ft_stepsidedist(t_recup *recup);
-int		ft_color_column(t_recup *recup);
-void	ft_forward_back(t_recup *recup);
-void	ft_left_right(t_recup *recup);
-void	ft_rotate_right_left(t_recup *recup);
-void	ft_swap(t_recup *recup);
+int		ft_raycasting(t_data *data);
+void	ft_get_texture(t_data *data);
+void	ft_stepsidedist(t_data *data);
+int		ft_color_column(t_data *data);
+void	ft_forward_back(t_data *data);
+void	ft_left_right(t_data *data);
+void	ft_rotate_right_left(t_data *data);
+void	ft_swap(t_data *data);
 
 #endif

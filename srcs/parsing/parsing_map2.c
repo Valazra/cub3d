@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:19 by user42            #+#    #+#             */
-/*   Updated: 2022/02/16 14:15:16 by vazra            ###   ########.fr       */
+/*   Updated: 2022/02/20 11:39:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,38 +29,38 @@ int	ft_emptyline(char *str)
 }
 
 //check si la premiere ligne de la map est bien
-int	ft_first_line(t_recup *recup)
+int	ft_first_line(t_data *data)
 {
 	int	i;
 
 	i = -1;
-	while (recup->map[0][++i])
-		if (recup->map[0][i] != '1' && recup->map[0][i] != ' ')
+	while (data->map[0][++i])
+		if (data->map[0][i] != '1' && data->map[0][i] != ' ')
 			return (1);
 	return (0);
 }
 
 //check pour chaque ligne de la map si elle commence bien 
 //par un mur et termine par un mur (hormis les espaces)
-int	ft_first_last_carac(t_recup *recup)
+int	ft_first_last_carac(t_data *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < recup->nblines - 1)
+	while (i < data->nblines - 1)
 	{
 		j = 0;
-		while (recup->map[i][j] == ' ')
+		while (data->map[i][j] == ' ')
 			j++;
-		if (recup->map[i][j] != '1')
+		if (data->map[i][j] != '1')
 			return (1);
-		while (recup->map[i][j] != '\0')
+		while (data->map[i][j] != '\0')
 			j++;
 		j--;
-		while (recup->map[i][j] == ' ')
+		while (data->map[i][j] == ' ')
 			j--;
-		if (recup->map[i][j] != '1')
+		if (data->map[i][j] != '1')
 			return (1);
 		i++;
 	}

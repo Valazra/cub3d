@@ -6,76 +6,76 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:27:00 by user42            #+#    #+#             */
-/*   Updated: 2021/06/17 11:23:55 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 11:38:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_drawstartend(t_recup *recup)
+void	ft_drawstartend(t_data *data)
 {
-	if (recup->ray.side == 0)
-		recup->ray.perpwalldist = ((double)recup->ray.mapx - recup->ray.posx \
-			+ (1 - (double)recup->ray.stepx) / 2) / recup->ray.raydirx;
+	if (data->ray.side == 0)
+		data->ray.perpwalldist = ((double)data->ray.mapx - data->ray.posx \
+			+ (1 - (double)data->ray.stepx) / 2) / data->ray.raydirx;
 	else
-		recup->ray.perpwalldist = ((double)recup->ray.mapy - recup->ray.posy \
-			+ (1 - (double)recup->ray.stepy) / 2) / recup->ray.raydiry;
-	recup->ray.lineheight = (int)(recup->ry / recup->ray.perpwalldist);
-	recup->ray.drawstart = -recup->ray.lineheight / 2 + recup->ry / 2;
-	if (recup->ray.drawstart < 0)
-		recup->ray.drawstart = 0;
-	recup->ray.drawend = recup->ray.lineheight / 2 + recup->ry / 2;
-	if (recup->ray.drawend >= recup->ry || recup->ray.drawend < 0)
-		recup->ray.drawend = recup->ry - 1;
+		data->ray.perpwalldist = ((double)data->ray.mapy - data->ray.posy \
+			+ (1 - (double)data->ray.stepy) / 2) / data->ray.raydiry;
+	data->ray.lineheight = (int)(data->ry / data->ray.perpwalldist);
+	data->ray.drawstart = -data->ray.lineheight / 2 + data->ry / 2;
+	if (data->ray.drawstart < 0)
+		data->ray.drawstart = 0;
+	data->ray.drawend = data->ray.lineheight / 2 + data->ry / 2;
+	if (data->ray.drawend >= data->ry || data->ray.drawend < 0)
+		data->ray.drawend = data->ry - 1;
 }
 
-void	ft_incrementray(t_recup *recup)
+void	ft_incrementray(t_data *data)
 {
-	while (recup->ray.hit == 0)
+	while (data->ray.hit == 0)
 	{
-		if (recup->ray.sidedistx < recup->ray.sidedisty)
+		if (data->ray.sidedistx < data->ray.sidedisty)
 		{
-			recup->ray.sidedistx += recup->ray.deltadistx;
-			recup->ray.mapx += recup->ray.stepx;
-			recup->ray.side = 0;
+			data->ray.sidedistx += data->ray.deltadistx;
+			data->ray.mapx += data->ray.stepx;
+			data->ray.side = 0;
 		}
 		else
 		{
-			recup->ray.sidedisty += recup->ray.deltadisty;
-			recup->ray.mapy += recup->ray.stepy;
-			recup->ray.side = 1;
+			data->ray.sidedisty += data->ray.deltadisty;
+			data->ray.mapy += data->ray.stepy;
+			data->ray.side = 1;
 		}
-		if (recup->map[recup->ray.mapx][recup->ray.mapy] == '1')
-			recup->ray.hit = 1;
+		if (data->map[data->ray.mapx][data->ray.mapy] == '1')
+			data->ray.hit = 1;
 	}
-	ft_drawstartend(recup);
+	ft_drawstartend(data);
 }
 
-void	ft_stepsidedist(t_recup *recup)
+void	ft_stepsidedist(t_data *data)
 {
-	if (recup->ray.raydirx < 0)
+	if (data->ray.raydirx < 0)
 	{
-		recup->ray.stepx = -1;
-		recup->ray.sidedistx = (recup->ray.posx - recup->ray.mapx) \
-							* recup->ray.deltadistx;
+		data->ray.stepx = -1;
+		data->ray.sidedistx = (data->ray.posx - data->ray.mapx) \
+							* data->ray.deltadistx;
 	}
 	else
 	{
-		recup->ray.stepx = 1;
-		recup->ray.sidedistx = (recup->ray.mapx + 1.0 - recup->ray.posx) \
-							* recup->ray.deltadistx;
+		data->ray.stepx = 1;
+		data->ray.sidedistx = (data->ray.mapx + 1.0 - data->ray.posx) \
+							* data->ray.deltadistx;
 	}
-	if (recup->ray.raydiry < 0)
+	if (data->ray.raydiry < 0)
 	{
-		recup->ray.stepy = -1;
-		recup->ray.sidedisty = (recup->ray.posy - recup->ray.mapy) \
-							* recup->ray.deltadisty;
+		data->ray.stepy = -1;
+		data->ray.sidedisty = (data->ray.posy - data->ray.mapy) \
+							* data->ray.deltadisty;
 	}
 	else
 	{
-		recup->ray.stepy = 1;
-		recup->ray.sidedisty = (recup->ray.mapy + 1.0 - recup->ray.posy) \
-							* recup->ray.deltadisty;
+		data->ray.stepy = 1;
+		data->ray.sidedisty = (data->ray.mapy + 1.0 - data->ray.posy) \
+							* data->ray.deltadisty;
 	}
-	ft_incrementray(recup);
+	ft_incrementray(data);
 }

@@ -6,94 +6,94 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:15:02 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 11:33:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_init_texture(t_recup *recup)
+void	ft_init_texture(t_data *data)
 {
-	if (recup->ray.side == 0 && recup->ray.raydirx < 0)
-		recup->t.texdir = 0;
-	if (recup->ray.side == 0 && recup->ray.raydirx >= 0)
-		recup->t.texdir = 1;
-	if (recup->ray.side == 1 && recup->ray.raydiry < 0)
-		recup->t.texdir = 2;
-	if (recup->ray.side == 1 && recup->ray.raydiry >= 0)
-		recup->t.texdir = 3;
-	if (recup->ray.side == 0)
-		recup->t.wallx = recup->ray.posy + recup->ray.perpwalldist
-			* recup->ray.raydiry;
+	if (data->ray.side == 0 && data->ray.raydirx < 0)
+		data->t.texdir = 0;
+	if (data->ray.side == 0 && data->ray.raydirx >= 0)
+		data->t.texdir = 1;
+	if (data->ray.side == 1 && data->ray.raydiry < 0)
+		data->t.texdir = 2;
+	if (data->ray.side == 1 && data->ray.raydiry >= 0)
+		data->t.texdir = 3;
+	if (data->ray.side == 0)
+		data->t.wallx = data->ray.posy + data->ray.perpwalldist
+			* data->ray.raydiry;
 	else
-		recup->t.wallx = recup->ray.posx + recup->ray.perpwalldist
-			* recup->ray.raydirx;
-	recup->t.wallx -= floor((recup->t.wallx));
+		data->t.wallx = data->ray.posx + data->ray.perpwalldist
+			* data->ray.raydirx;
+	data->t.wallx -= floor((data->t.wallx));
 }
 
-void	ft_draw_texture(t_recup *recup, int x, int y)
+void	ft_draw_texture(t_data *data, int x, int y)
 {
-	y = recup->ray.drawstart - 1;
-	ft_init_texture(recup);
-	recup->t.step = 1.0 * recup->texture[0].height / recup->ray.lineheight;
-	recup->t.texx = (int)(recup->t.wallx
-		* (double)recup->texture[recup->t.texdir].width);
-	if (recup->ray.side == 0 && recup->ray.raydirx > 0)
-		recup->t.texx = recup->texture[recup->t.texdir].width
-			- recup->t.texx - 1;
-	if (recup->ray.side == 1 && recup->ray.raydiry < 0)
-		recup->t.texx = recup->texture[recup->t.texdir].width
-			- recup->t.texx - 1;
-	recup->t.texpos = (recup->ray.drawstart - recup->ry / 2
-		+ recup->ray.lineheight / 2) * recup->t.step;
-	while (++y <= recup->ray.drawend)
+	y = data->ray.drawstart - 1;
+	ft_init_texture(data);
+	data->t.step = 1.0 * data->texture[0].height / data->ray.lineheight;
+	data->t.texx = (int)(data->t.wallx
+		* (double)data->texture[data->t.texdir].width);
+	if (data->ray.side == 0 && data->ray.raydirx > 0)
+		data->t.texx = data->texture[data->t.texdir].width
+			- data->t.texx - 1;
+	if (data->ray.side == 1 && data->ray.raydiry < 0)
+		data->t.texx = data->texture[data->t.texdir].width
+			- data->t.texx - 1;
+	data->t.texpos = (data->ray.drawstart - data->ry / 2
+		+ data->ray.lineheight / 2) * data->t.step;
+	while (++y <= data->ray.drawend)
 	{
-		recup->t.texy = (int)recup->t.texpos \
-			&(recup->texture[recup->t.texdir].height - 1);
-		recup->t.texpos += recup->t.step;
-		if (y < recup->ry && x < recup->rx)
-			recup->data.addr[y * recup->data.line_length / 4 + x] =
-				recup->texture[recup->t.texdir].addr[recup->t.texy
-				* recup->texture[recup->t.texdir].line_length / 4
-					+ recup->t.texx];
+		data->t.texy = (int)data->t.texpos \
+			&(data->texture[data->t.texdir].height - 1);
+		data->t.texpos += data->t.step;
+		if (y < data->ry && x < data->rx)
+			data->data_mlx.addr[y * data->data_mlx.line_length / 4 + x] =
+				data->texture[data->t.texdir].addr[data->t.texy
+				* data->texture[data->t.texdir].line_length / 4
+					+ data->t.texx];
 	}
 }
 
-int	ft_color_column(t_recup *recup)
+int	ft_color_column(t_data *data)
 {
 	int	j;
 	int	i;
 
 	j = -1;
-	recup->ray.drawend = recup->ry - recup->ray.drawstart;
-	i = recup->ray.drawend;
-	while (++j < recup->ray.drawstart)
-		recup->data.addr[j * recup->data.line_length / 4 \
-			+ recup->ray.x] = recup->c;
-	if (j <= recup->ray.drawend)
-		ft_draw_texture(recup, recup->ray.x, j);
+	data->ray.drawend = data->ry - data->ray.drawstart;
+	i = data->ray.drawend;
+	while (++j < data->ray.drawstart)
+		data->data_mlx.addr[j * data->data_mlx.line_length / 4 \
+			+ data->ray.x] = data->c;
+	if (j <= data->ray.drawend)
+		ft_draw_texture(data, data->ray.x, j);
 	j = i;
-	while (++j < recup->ry)
-		recup->data.addr[j * recup->data.line_length / 4 \
-			+ recup->ray.x] = recup->f;
+	while (++j < data->ry)
+		data->data_mlx.addr[j * data->data_mlx.line_length / 4 \
+			+ data->ray.x] = data->f;
 	return (0);
 }
 
-int	ft_raycasting(t_recup *recup)
+int	ft_raycasting(t_data *data)
 {
-	recup->ray.x = 0;
-	while (recup->ray.x < recup->rx)
+	data->ray.x = 0;
+	while (data->ray.x < data->rx)
 	{
-		ft_initialisation3(recup);
-		ft_stepsidedist(recup);
-		ft_color_column(recup);
-		recup->ray.x++;
+		ft_initialisation3(data);
+		ft_stepsidedist(data);
+		ft_color_column(data);
+		data->ray.x++;
 	}
-	mlx_put_image_to_window(recup->data.mlx_ptr, recup->data.mlx_win, \
-		recup->data.img, 0, 0);
-	ft_forward_back(recup);
-	ft_left_right(recup);
-	ft_rotate_right_left(recup);
+	mlx_put_image_to_window(data->data_mlx.mlx_ptr, data->data_mlx.mlx_win, \
+		data->data_mlx.img, 0, 0);
+	ft_forward_back(data);
+	ft_left_right(data);
+	ft_rotate_right_left(data);
 	return (0);
 }
 

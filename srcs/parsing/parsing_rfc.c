@@ -6,92 +6,92 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/16 14:19:37 by vazra            ###   ########.fr       */
+/*   Updated: 2022/02/20 11:40:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_atoi2_more(const char *str, t_recup *recup)
+void	ft_atoi2_more(const char *str, t_data *data)
 {
 	int	back;
 
 	back = 0;
-	while (str[recup->i] >= '0' && str[recup->i] <= '9')
-		recup->i++;
-	if (str[recup->i] != ' ' && str[recup->i] != '\t' && str[recup->i] != '\0')
-		ft_error(recup, "Error\nProblem with R\n");
-	while (str[recup->i] == ' ' || str[recup->i] == '\t')
+	while (str[data->i] >= '0' && str[data->i] <= '9')
+		data->i++;
+	if (str[data->i] != ' ' && str[data->i] != '\t' && str[data->i] != '\0')
+		ft_error(data, "Error\nProblem with R\n");
+	while (str[data->i] == ' ' || str[data->i] == '\t')
 	{
-		recup->i++;
+		data->i++;
 		back++;
 	}
-	if (str[recup->i] == '0')
-		ft_error(recup, "Error\nProblem with R\n");
+	if (str[data->i] == '0')
+		ft_error(data, "Error\nProblem with R\n");
 	while (back > 0)
 	{
-		recup->i--;
+		data->i--;
 		back--;
 	}
 }
 
-int	ft_atoi2(const char *str, t_recup *recup)
+int	ft_atoi2(const char *str, t_data *data)
 {
 	int	sum;
 
 	sum = 0;
-	if ((str[recup->i] != ' ' && str[recup->i] != '\t' && str[recup->i] != '\0')
+	if ((str[data->i] != ' ' && str[data->i] != '\t' && str[data->i] != '\0')
 		|| ft_charinstr((char *)str, ',') == 1)
-		ft_error(recup, "Error\nProblem with R\n");
-	while (str[recup->i] == ' ' || str[recup->i] == '\t'
-		|| str[recup->i] == ',')
-		recup->i++;
-	while (str[recup->i] >= '0' && str[recup->i] <= '9')
+		ft_error(data, "Error\nProblem with R\n");
+	while (str[data->i] == ' ' || str[data->i] == '\t'
+		|| str[data->i] == ',')
+		data->i++;
+	while (str[data->i] >= '0' && str[data->i] <= '9')
 	{
 		if (sum > 21474636)
 			break ;
-		sum = (sum * 10) + (str[recup->i] - 48);
-		recup->i++;
+		sum = (sum * 10) + (str[data->i] - 48);
+		data->i++;
 	}
-	ft_atoi2_more(str, recup);
+	ft_atoi2_more(str, data);
 	return (sum);
 }
 
-void	ft_recup_rfc2(char *str, t_recup *recup, int i)
+void	ft_data_rfc2(char *str, t_data *data, int i)
 {
 	if (str[i] == 'R')
 	{
-		if (recup->rx != 0 && recup->ry != 0)
-			ft_error(recup, "Error\nProblem with R\n");
-		recup->rx = ft_atoi2(str, recup);
-		recup->ry = ft_atoi2(str, recup);
-		if (ft_atoi2(str, recup) > 0 || recup->rx == 0 || recup->ry == 0)
-			ft_error(recup, "Error\nProblem with R\n");
+		if (data->rx != 0 && data->ry != 0)
+			ft_error(data, "Error\nProblem with R\n");
+		data->rx = ft_atoi2(str, data);
+		data->ry = ft_atoi2(str, data);
+		if (ft_atoi2(str, data) > 0 || data->rx == 0 || data->ry == 0)
+			ft_error(data, "Error\nProblem with R\n");
 	}
 	else if (str[i] == 'F')
 	{
-		if (recup->f != -1)
-			ft_error(recup, "Error\nToo much F\n");
-		recup->f = ft_atoi3(str, recup);
+		if (data->f != -1)
+			ft_error(data, "Error\nToo much F\n");
+		data->f = ft_atoi3(str, data);
 	}
 	else if (str[i] == 'C')
 	{
-		if (recup->c != -1)
-			ft_error(recup, "Error\nToo much C\n");
-		recup->c = ft_atoi3(str, recup);
+		if (data->c != -1)
+			ft_error(data, "Error\nToo much C\n");
+		data->c = ft_atoi3(str, data);
 	}
 }
 
-void	ft_recup_rfc(char *str, t_recup *recup)
+void	ft_data_rfc(char *str, t_data *data)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	recup->i = i + 1;
-	if (recup->sizeline > 0 && (recup->no == NULL || recup->so == NULL \
-		|| recup->we == NULL || recup->ea == NULL))
-		ft_error(recup, "Error\nProblem of parsing\n");
-	ft_recup_rfc2(str, recup, i);
+	data->i = i + 1;
+	if (data->sizeline > 0 && (data->no == NULL || data->so == NULL \
+		|| data->we == NULL || data->ea == NULL))
+		ft_error(data, "Error\nProblem of parsing\n");
+	ft_data_rfc2(str, data, i);
 }
