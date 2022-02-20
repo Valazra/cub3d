@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:31 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:46:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:17:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_depart(char c, t_data *data, int i, int j)
 		if (data->depart != 'x')
 			data->multiplayer = 1;
 		data->depart = c;
-		data->dx = i;
-		data->dy = j;
+		data->pos_x = i;
+		data->pos_y = j;
 		return (1);
 	}
 	return (0);

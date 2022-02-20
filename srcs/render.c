@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:41:09 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:23:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_color_column(t_data *data)
 	return (0);
 }
 
-int	ft_raycasting(t_data *data)
+int	ft_render(t_data *data)
 {
 	data->ray.x = 0;
 	while (data->ray.x < data->res_x)

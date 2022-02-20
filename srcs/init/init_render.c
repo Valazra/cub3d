@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:22:35 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:44:28 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:18:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_init_render(t_data *data)
 	data->data_mlx.right = 0;
 	data->data_mlx.rotate_right = 0;
 	data->data_mlx.rotate_left = 0;
-	data->ray.posx = (double)data->dx + 0.5;
-	data->ray.posy = (double)data->dy + 0.5;
+	data->ray.posx = (double)data->pos_x + 0.5;
+	data->ray.posy = (double)data->pos_y + 0.5;
 	data->ray.dirx = 0;
 	data->ray.diry = 0;
 	data->ray.planx = 0;

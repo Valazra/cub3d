@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:05:04 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:22:19 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:58:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void	ft_init_more(t_data *data)
 {
 	data->depart = 'x';
-	data->indicateur2 = 0;
-	data->indicateur3 = 0;
+	data->nb_color_code = 0;
 	data->data_mlx.img = NULL;
 	data->texture[0].img = NULL;
 	data->texture[1].img = NULL;
@@ -38,8 +37,8 @@ void	ft_init_data(t_data *data)
 	data->res_y = 0;
 	data->nblines = 0;
 	data->sizeline = 0;
-	data->dx = 0;
-	data->dy = 0;
+	data->pos_x = 0;
+	data->pos_y = 0;
 	data->multiplayer = 0;
 	data->emptyline = 0;
 	data->insidemap = 0;

@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:05 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:37:48 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:46:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_key_press(int keycode, t_data *data)
 	else if (keycode == ROTATE_RIGHT)
 		data->data_mlx.rotate_right = 1;
 	else if (keycode == 65307)
-		ft_error(data, "All is working\n");
+		ft_free_and_exit(data);
 	return (1);
 }
 

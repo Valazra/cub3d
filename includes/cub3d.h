@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:39:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:57:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,9 @@ typedef struct s_data
 	int			sizeline;
 	char		**map;
 	char		depart;
-	int			dx;
-	int			dy;
-	int			indicateur;
-	int			indicateur2;
-	int			indicateur3;
+	int			pos_x;
+	int			pos_y;
+	int			nb_color_code;
 	int			error;
 	int			multiplayer;
 	int			emptyline;
@@ -158,7 +156,7 @@ int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
 
 //RAYCAST
-int		ft_raycasting(t_data *data);
+int		ft_render(t_data *data);
 void	ft_stepsidedist(t_data *data);
 int		ft_color_column(t_data *data);
 void	ft_forward_back(t_data *data);
@@ -169,6 +167,7 @@ int		ft_key_release(int keycode, t_data *data);
 
 //ERROR
 void	ft_error(t_data *data, char *str);
+void	ft_free_and_exit(t_data *data);
 int		ft_exit(t_data *data);
 void	ft_parsing_errors(t_data *data);
 

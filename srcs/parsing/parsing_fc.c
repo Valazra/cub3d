@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:47:21 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 14:58:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_atoi3_check(const char *str, t_data *data)
 void	ft_atoi3_more(const char *str, t_data *data, int verify)
 {
 	if (str[data->i] >= '0' && str[data->i] <= '9')
-		data->indicateur2++;
+		data->nb_color_code++;
 	while (str[data->i] == '0')
 		data->i++;
 	while (str[data->i] >= '0' && str[data->i] <= '9')
