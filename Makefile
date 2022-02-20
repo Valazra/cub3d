@@ -14,8 +14,8 @@ SRCS_DIR = srcs
 
 # Source files 
 MAIN = main.c render.c
-PARSING = parsing_file.c parsing_rfc.c parsing_rfc2.c parsing_textures.c \
-		set_and_parse_map.c check_map.c check_surround.c 
+PARSING = parsing_file.c parsing_fc.c parsing_textures.c check_map.c \
+	set_and_parse_map.c check_surround.c 
 INIT = init_data.c init_data_ray.c init_render.c init_mlx.c
 GET_NEXT_LINE = get_next_line.c get_next_line_utils.c gnl_str_free.c 
 ERROR = ft_error.c ft_exit.c parsing_errors.c

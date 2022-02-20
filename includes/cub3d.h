@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:18:05 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:37:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,9 +148,7 @@ int		init_mlx(t_data *data);
 //PARSING
 int		ft_parsing_file_name(char *str, t_data *data);
 int		ft_set_map(char *fichier, t_data *data);
-void	ft_recup_rfc(char *str, t_data *data);
-int		ft_atoi3(const char *str, t_data *data);
-void	ft_atoi3_check(const char *str, t_data *data);
+void	ft_recup_fc(char *str, t_data *data);
 void	ft_parsing_texture(char *str, t_data *data);
 int		ft_is_map(char *str, t_data *data);
 int		ft_copy_map(char *str, t_data *data);

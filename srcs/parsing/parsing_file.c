@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:40 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:29:22 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/20 13:38:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_parsing_file(char *fichier, t_data *data)
 		ret = get_next_line(fd, &str);
 		if (data->error == 2)
 			ft_error(data, "Error\nParsing problem\n");
-		ft_recup_rfc(str, data);
+		ft_recup_fc(str, data);
 		ft_parsing_texture(str, data);
 		ft_count_size_and_nb_lines_of_map(str, data);
 		free(str);
