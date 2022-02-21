@@ -6,13 +6,13 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 14:58:13 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/21 09:56:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_atoi3_check2(const char *str, t_data *data, int i, int j)
+void	ft_check_fc2(const char *str, t_data *data, int i, int j)
 {
 	while ((str[i] < '0' || str[i] > '9') && str[i])
 	{
@@ -26,7 +26,7 @@ void	ft_atoi3_check2(const char *str, t_data *data, int i, int j)
 		ft_error(data, "Error\nProblem of comma with F or C\n");
 }
 
-void	ft_atoi3_check(const char *str, t_data *data)
+void	ft_check_fc(const char *str, t_data *data)
 {
 	int	i;
 	int	j;
@@ -44,10 +44,10 @@ void	ft_atoi3_check(const char *str, t_data *data)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	ft_atoi3_check2(str, data, i, j);
+	ft_check_fc2(str, data, i, j);
 }
 
-void	ft_atoi3_more(const char *str, t_data *data, int verify)
+void	ft_fill_fc(const char *str, t_data *data, int verify)
 {
 	if (str[data->i] >= '0' && str[data->i] <= '9')
 		data->nb_color_code++;
@@ -63,20 +63,20 @@ void	ft_atoi3_more(const char *str, t_data *data, int verify)
 		ft_error(data, "Error\nProblem with F or C\n");
 }
 
-int	ft_atoi3(const char *str, t_data *data)
+int	ft_set_fc(const char *str, t_data *data)
 {
 	int	verify;
 
 	data->sum = 0;
 	if (str[data->i] != ' ' && str[data->i] != '\t')
 		ft_error(data, "Error\nProblem with F or C\n");
-	ft_atoi3_check(str, data);
+	ft_check_fc(str, data);
 	while (str[data->i] == ' ' || str[data->i] == '\t'
 		|| str[data->i] == ',')
 	{
 		data->i++;
 		verify = 0;
-		ft_atoi3_more(str, data, verify);
+		ft_fill_fc(str, data, verify);
 	}
 	return (data->sum);
 }
@@ -96,12 +96,12 @@ void	ft_recup_fc(char *str, t_data *data)
 	{
 		if (data->f != -1)
 			ft_error(data, "Error\nToo much F\n");
-		data->f = ft_atoi3(str, data);
+		data->f = ft_set_fc(str, data);
 	}
 	else if (str[i] == 'C')
 	{
 		if (data->c != -1)
 			ft_error(data, "Error\nToo much C\n");
-		data->c = ft_atoi3(str, data);
+		data->c = ft_set_fc(str, data);
 	}
 }
