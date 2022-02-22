@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 14:23:31 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:31:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_draw_texture(t_data *data, int x, int y)
 			+ data->ray.lineheight / 2) * data->t.step;
 	while (++y <= data->ray.drawend)
 	{
-		data->t.texy = (int)data->t.texpos \
+		data->t.texy = (int)data->t.texpos
 			&(data->texture[data->t.texdir].height - 1);
 		data->t.texpos += data->t.step;
 		if (y < data->res_y && x < data->res_x)
