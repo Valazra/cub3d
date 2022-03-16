@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:31 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 15:18:44 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:57:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 int	ft_depart(char c, t_data *data, int i, int j)
 {
@@ -26,9 +26,6 @@ int	ft_depart(char c, t_data *data, int i, int j)
 	return (0);
 }
 
-//va creer dans data->map la map du fichier, en tcheckant la position de depart
-//et en mettant ses coordonnes dans dx et dy (check aussi si multiplayers).
-//Complete les lignes par des \0 jusqu'a sizeline (la ligne la plus grande)
 int	ft_copy_map(char *str, t_data *data)
 {
 	static int	i = 0;
@@ -57,7 +54,6 @@ int	ft_copy_map(char *str, t_data *data)
 	return (0);
 }
 
-//check si on est dans la map
 int	ft_is_map(char *str, t_data *data)
 {
 	int		i;

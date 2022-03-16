@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/03/16 15:31:49 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:57:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_exceptions(char *str, t_data *data, int i)
 {

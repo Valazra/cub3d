@@ -6,11 +6,11 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:35:42 by user42            #+#    #+#             */
-/*   Updated: 2022/02/22 14:48:57 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:54:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_init_data_ray(t_data *data)
 {

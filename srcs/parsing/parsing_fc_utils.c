@@ -6,11 +6,11 @@
 /*   By: jholl <jholl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:35:20 by jholl             #+#    #+#             */
-/*   Updated: 2022/03/16 17:40:18 by jholl            ###   ########.fr       */
+/*   Updated: 2022/03/17 00:56:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 int	encode_rgb(int red, int green, int blue)
 {

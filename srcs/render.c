@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:21:50 by user42            #+#    #+#             */
-/*   Updated: 2022/02/22 15:31:26 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:57:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_init_texture(t_data *data)
 {

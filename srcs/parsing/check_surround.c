@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:19 by user42            #+#    #+#             */
-/*   Updated: 2022/03/16 14:19:35 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:56:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 int	ft_check_spaces(t_data *data, int i, int j)
 {
@@ -75,7 +75,6 @@ int	ft_check_line(t_data *data, int i, int j)
 	return (0);
 }
 
-//check si la map est bien entouree de murs
 int	ft_surround(t_data *data)
 {
 	int	i;

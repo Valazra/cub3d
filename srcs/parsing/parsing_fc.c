@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/03/16 17:39:45 by jholl            ###   ########.fr       */
+/*   Updated: 2022/03/17 00:56:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_check_fc2(const char *str, t_data *data, int i, int j)
 {

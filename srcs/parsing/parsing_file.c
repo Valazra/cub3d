@@ -6,14 +6,12 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:40 by user42            #+#    #+#             */
-/*   Updated: 2022/02/21 10:01:30 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:56:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
-//va incrementer nb_lines a chaque appel (gnl) et va mettre dans sizeline
-//la taille de la plus grande ligne de la map
 void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data)
 {
 	int			i;
@@ -48,10 +46,6 @@ int	ft_check_file(t_data *data, char *fichier)
 	return (fd);
 }
 
-//check si le fichier de la map n'est pas un dossier, et si il existe bien 
-//et qu on a les droits pour lire dessus, puis parcoure tout le fichier, 
-//data les donnees R, F, C, (R a enlever dans nouveau sujet), data les paths 
-//des textures, et data le nb de lignes de la map et la taille des lignes
 void	ft_parsing_file(char *fichier, t_data *data)
 {
 	int		fd;
@@ -78,7 +72,6 @@ void	ft_parsing_file(char *fichier, t_data *data)
 	ft_set_map(fichier, data);
 }
 
-//check le nom du fichier de la map
 int	ft_parsing_file_name(char *str, t_data *data)
 {
 	int	i;

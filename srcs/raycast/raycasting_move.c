@@ -6,11 +6,11 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:26:11 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:44:36 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:58:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_forward_back(t_data *data)
 {
