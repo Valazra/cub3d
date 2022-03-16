@@ -1,15 +1,15 @@
  
-           F 	       0     ,          225    , 225
-	SO	./textures/stone1.xpm
+           F 	       220     ,          66    , 185
+	SO	./textures/greystone.xpm
 
 
-EA ./textures/stone4.xpm
+EA ./textures/red.xpm
  	 
 
 	C 255,20,30
-			 WE ./textures/stone10.xpm
+			 WE ./textures/purplestone.xpm
 
-NO      ./textures/stone17.xpm
+NO      ./textures/eagle.xpm
 
 11111111111111111111111
 10000000000000000001

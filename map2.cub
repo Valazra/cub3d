@@ -1,12 +1,12 @@
 F 0 , 255 , 0
 
-SO ./textures/Other_Wall.xpm
+SO ./textures/wall_other.xpm
 
-EA ./textures/Wall_with_trou.xpm
+EA ./textures/wall_trou.xpm
 
 C 29,6,75
 
-WE ./textures/Wall_no_mouse.xpm
+WE ./textures/wall_no_mouse.xpm
 
 NO ./textures/japwall.xpm
 
