@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map3.c                                     :+:      :+:    :+:   */
+/*   check_surround.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:19 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 11:39:36 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/16 14:19:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_check_spaces(t_data *data, int i, int j)
 {
-	if (data->map[i - 1][j] == ' ')
+	if (data->map[i - 1][j] == ' ' || data->map[i - 1][j] == '\0')
 		return (1);
-	if (data->map[i][j - 1] == ' ')
+	if (data->map[i][j - 1] == ' ' || data->map[i][j - 1] == '\0')
 		return (1);
-	if (data->map[i][j + 1] == ' ')
+	if (data->map[i][j + 1] == ' ' || data->map[i][j + 1] == '\0')
 		return (1);
-	if (data->map[i + 1][j] == ' ')
+	if (data->map[i + 1][j] == ' ' || data->map[i + 1][j] == '\0')
 		return (1);
 	return (0);
 }
@@ -53,7 +53,7 @@ int	ft_check_bottom(t_data *data, int i, int j)
 	return (1);
 }
 
-int	ft_check(t_data *data, int i, int j)
+int	ft_check_line(t_data *data, int i, int j)
 {
 	while (data->map[i][j])
 	{
@@ -86,7 +86,7 @@ int	ft_surround(t_data *data)
 	while (i < data->nblines)
 	{
 		j = 0;
-		check = ft_check(data, i, j);
+		check = ft_check_line(data, i, j);
 		if (check == 1)
 			return (1);
 		else
