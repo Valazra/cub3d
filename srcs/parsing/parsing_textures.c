@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 15:24:50 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:01:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 		ft_error(data, "Error\nProblem with path of ids\n");
 	while (str[i] != '.')
 	{
-		if (str[i] != ' ' && str[i] != '\t' && str[i] != '.')
+		if (str[i] != ' ' && str[i] != '\t')
 			ft_error(data, "Error\nProblem with start of path\n");
 		i++;
 	}
