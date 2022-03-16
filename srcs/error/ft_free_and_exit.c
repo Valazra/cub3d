@@ -6,11 +6,11 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:45:16 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 14:45:25 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:52:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_free_and_exit(t_data *data)
 {

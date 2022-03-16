@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:27:00 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 13:42:25 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:23:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	ft_drawstartend(t_data *data)
 	data->ray.drawstart = -data->ray.lineheight / 2 + data->res_y / 2;
 	if (data->ray.drawstart < 0)
 		data->ray.drawstart = 0;
-	data->ray.drawend = data->ray.lineheight / 2 + data->res_y / 2;
-	if (data->ray.drawend >= data->res_y || data->ray.drawend < 0)
-		data->ray.drawend = data->res_y - 1;
 }
 
 void	ft_incrementray(t_data *data)

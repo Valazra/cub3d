@@ -6,11 +6,11 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:27:19 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 14:57:43 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:52:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	ft_parsing_errors(t_data *data)
 {
