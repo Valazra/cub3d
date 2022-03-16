@@ -3,7 +3,7 @@
 	SO	./textures/greystone.xpm
 
 
-EA ./textures/japwall.xpm
+EA ./textures/red.xpm
  	 
 
 	C 255,20,30
