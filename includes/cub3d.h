@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/02/20 15:25:48 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/16 17:39:58 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,10 @@ typedef struct s_data
 	int			emptyline;
 	int			insidemap;
 	int			wrongcharmap;
+	int			rgb;
+	int			r;
+	int			g;
+	int			b;
 	t_data_mlx	texture[4];
 	t_data_mlx	data_mlx;
 	t_ray		ray;
@@ -154,6 +158,8 @@ int		ft_emptyline(char *str);
 int		ft_first_last_carac(t_data *data);
 int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
+int		encode_rgb(int red, int green, int blue);
+void	init_data_rgb(t_data *data);
 
 //RAYCAST
 int		ft_render(t_data *data);
