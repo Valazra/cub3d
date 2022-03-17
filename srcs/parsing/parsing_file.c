@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:40 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:56:53 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 14:09:19 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data)
 {
 	int			i;
-	static int	snblines = 0;
-	static int	ssizeline = 0;
 
 	i = 0;
 	if (ft_is_map(str, data) == 1)
@@ -25,12 +23,10 @@ void	ft_count_size_and_nb_lines_of_map(char *str, t_data *data)
 			|| data->so == NULL || data->we == NULL || data->ea == NULL)
 			ft_error(data, "Error\nInformations missing\n");
 		i = ft_strlen(str);
-		if (i > ssizeline)
-			ssizeline = i;
-		snblines = snblines + 1;
+		if (i > data->sizeline)
+			data->sizeline = i;
+		data->nblines++;
 	}
-	data->nblines = snblines;
-	data->sizeline = ssizeline;
 }
 
 int	ft_check_file(t_data *data, char *fichier)
@@ -55,12 +51,9 @@ void	ft_parsing_file(char *fichier, t_data *data)
 	ret = 1;
 	str = NULL;
 	fd = ft_check_file(data, fichier);
-	data->error = 0;
 	while (ret != 0)
 	{
 		ret = get_next_line(fd, &str);
-		if (data->error == 2)
-			ft_error(data, "Error\nParsing problem\n");
 		ft_recup_fc(str, data);
 		ft_parsing_texture(str, data);
 		ft_count_size_and_nb_lines_of_map(str, data);

@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/03/16 17:39:58 by jholl            ###   ########.fr       */
+/*   Updated: 2022/03/17 14:30:18 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,8 @@ typedef struct s_data
 	int			pos_x;
 	int			pos_y;
 	int			nb_color_code;
-	int			error;
-	int			multiplayer;
 	int			emptyline;
 	int			insidemap;
-	int			wrongcharmap;
 	int			rgb;
 	int			r;
 	int			g;
@@ -128,7 +125,6 @@ typedef struct s_data
 }			t_data;
 
 //GLOBAL_UTILS
-int		ft_count_digits_after_point(char *str);
 int		ft_count_nb_virgule(const char *str);
 int		ft_charinstr(char *str, char c);
 

@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:24:31 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:57:30 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 14:29:58 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_depart(char c, t_data *data, int i, int j)
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
 		if (data->depart != 'x')
-			data->multiplayer = 1;
+			ft_error(data, "Error\nToo much players in the map\n");
 		data->depart = c;
 		data->pos_x = i;
 		data->pos_y = j;
@@ -35,7 +35,7 @@ int	ft_copy_map(char *str, t_data *data)
 	data->map[i] = NULL;
 	data->map[i] = malloc(sizeof(*data->map[i]) * data->sizeline + 1);
 	if (!(data->map[i]))
-		return (0);
+		ft_error(data, "Error\nProblem with malloc\n");
 	while (str[j] != '\0')
 	{
 		if (ft_depart(str[j], data, i, j) == 1)
@@ -65,12 +65,12 @@ int	ft_is_map(char *str, t_data *data)
 	{
 		while (str[i] != '\0')
 		{
-			if (str[i] != ' ' && str[i] != '0' && str[i] != '1' && str[i] \
-				!= 'N' && str[i] != 'S' && str[i] != 'E' && str[i] != 'W' \
-				&& str[i] != '\n' && str[i] != '\t')
+			if (str[i] != ' ' && str[i] != '0' && str[i] != '1' && str[i]
+				!= 'N' && str[i] != 'S' && str[i] != 'E' && str[i] != 'W'
+				&& str[i] != '\t')
 			{
 				if (data->insidemap == 1)
-					data->wrongcharmap = 2;
+					ft_error(data, "Error\nBad character in the map\n");
 				return (0);
 			}
 			i++;
@@ -105,7 +105,7 @@ int	ft_set_map(char *fichier, t_data *data)
 	fd = open(fichier, O_RDONLY);
 	data->map = malloc(sizeof(char *) * data->nblines);
 	if (!(data->map))
-		return (0);
+		ft_error(data, "Error\nProblem with malloc\n");
 	while (ret != 0)
 	{
 		ret = get_next_line(fd, &str);

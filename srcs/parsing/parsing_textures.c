@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 12:15:14 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 13:56:20 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,19 @@ void	check_end_path(char *str, int i, t_data *data)
 
 int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 {
+	int j;
+	int k;
+
+	j = 0;
 	data->set_texture = 0;
 	if (*texture != NULL)
 		ft_error(data, "Error\nToo many ids\n");
-	if (ft_charinstr(str, '.') == 0 || ft_charinstr(str, '/') == 0
-		|| ft_count_digits_after_point(str) <= 2)
-		ft_error(data, "Error\nProblem with path of ids\n");
-	while (str[i] != '.')
-	{
-		if (str[i] != ' ' && str[i] != '\t')
-			ft_error(data, "Error\nProblem with start of path\n");
+	while ((str[i] == ' ' || str[i] == '\t') && str[i])
 		i++;
-	}
-	*texture = (char *)(malloc(sizeof(char)
-				* (ft_count_digits_after_point(str) + 1)));
+	k = i;
+	while (str[k++])
+		j++;
+	*texture = (char *)(malloc(sizeof(char) * (j + 1)));
 	if (!(*texture))
 		ft_error(data, "Error\nProblem with textures malloc\n");
 	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
@@ -82,18 +81,18 @@ void	ft_parsing_texture(char *str, t_data *data)
 		i++;
 	if (str[i] == 'S' && str[i + 1] == 'O' && (str[i + 2] == ' '
 			|| str[i + 2] == '\t'))
-		ft_path_texture(str, &data->no, data, i + 2);
+		ft_path_texture(str, &data->so, data, i + 2);
 	else if (str[i] == 'N' && str[i + 1] == 'O' && (str[i + 2] == ' '
 			|| str[i + 2] == '\t'))
-		ft_path_texture(str, &data->so, data, i + 2);
+		ft_path_texture(str, &data->no, data, i + 2);
 	else if (str[i] == 'E' && str[i + 1] == 'A' && (str[i + 2] == ' '
 			|| str[i + 2] == '\t'))
-		ft_path_texture(str, &data->we, data, i + 2);
+		ft_path_texture(str, &data->ea, data, i + 2);
 	else if (str[i] == 'W' && str[i + 1] == 'E' && (str[i + 2] == ' '
 			|| str[i + 2] == '\t'))
-		ft_path_texture(str, &data->ea, data, i + 2);
+		ft_path_texture(str, &data->we, data, i + 2);
 	else if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
-		&& str[i] != 'F' && str[i] != 'C' && str[i] > 65 && str[i] < 122)
+		&& str[i] != 'F' && str[i] != 'C' && str[i] != '\0' && str[i] != '0' && str[i] != '1')
 		ft_error(data, "Error\nBad id\n");
 	ft_exceptions(str, data, i);
 }

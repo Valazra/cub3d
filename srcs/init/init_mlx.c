@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:20:26 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 12:19:04 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 12:57:08 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ void	ft_get_texture_adress(t_data *data)
 void	ft_get_texture(t_data *data)
 {
 	data->texture[0].img = mlx_xpm_file_to_image(data->data_mlx.mlx_ptr,
-			data->no, &(data->texture[0].width), &(data->texture[0].height));
+			data->so, &(data->texture[0].width), &(data->texture[0].height));
 	if (!(data->texture[0].img))
 		ft_error(data, "Error\nProblem with Texture SO\n");
 	data->texture[1].img = mlx_xpm_file_to_image(data->data_mlx.mlx_ptr,
-			data->so, &(data->texture[1].width), &(data->texture[1].height));
+			data->no, &(data->texture[1].width), &(data->texture[1].height));
 	if (!(data->texture[1].img))
 		ft_error(data, "Error\nProblem with Texture NO\n");
 	data->texture[2].img = mlx_xpm_file_to_image(data->data_mlx.mlx_ptr,
-			data->we, &(data->texture[2].width), &(data->texture[2].height));
+			data->ea, &(data->texture[2].width), &(data->texture[2].height));
 	if (!(data->texture[2].img))
 		ft_error(data, "Error\nProblem with Texture EA\n");
 	data->texture[3].img = mlx_xpm_file_to_image(data->data_mlx.mlx_ptr,
-			data->ea, &(data->texture[3].width), &(data->texture[3].height));
+			data->we, &(data->texture[3].width), &(data->texture[3].height));
 	if (!(data->texture[3].img))
 		ft_error(data, "Error\nProblem with Texture WE\n");
 	ft_get_texture_adress(data);
