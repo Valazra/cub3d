@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:57:08 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 12:15:14 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ void	ft_exceptions(char *str, t_data *data, int i)
 		ft_error(data, "Error\nBad 'W'\n");
 }
 
+void	check_end_path(char *str, int i, t_data *data)
+{
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i])
+		ft_error(data, "Error\nProblem with end of path\n");
+}
+
 int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 {
 	data->set_texture = 0;
@@ -54,13 +62,14 @@ int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 				* (ft_count_digits_after_point(str) + 1)));
 	if (!(*texture))
 		ft_error(data, "Error\nProblem with textures malloc\n");
-	while (str[i] != '\0')
+	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 	{
 		(*texture)[data->set_texture] = str[i];
 		data->set_texture++;
 		i++;
 	}
 	(*texture)[data->set_texture] = '\0';
+	check_end_path(str, i, data);
 	return (0);
 }
 

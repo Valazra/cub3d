@@ -1,12 +1,12 @@
  
-           F 	       255     ,          225    , 50
+           F 	       255     ,          225    , 50     
 	SO	./textures/stone1.xpm
 
 
 EA ./textures/stone4.xpm
  	 
 
-	C 205,66,156
+	C 205,66,156                		
 			 WE ./textures/stone10.xpm
 
 NO      ./textures/stone17.xpm
