@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:44 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 13:56:20 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 15:16:58 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	check_end_path(char *str, int i, t_data *data)
 
 int	ft_path_texture(char *str, char **texture, t_data *data, int i)
 {
-	int j;
-	int k;
+	int	j;
+	int	k;
 
 	j = 0;
 	data->set_texture = 0;
@@ -92,7 +92,8 @@ void	ft_parsing_texture(char *str, t_data *data)
 			|| str[i + 2] == '\t'))
 		ft_path_texture(str, &data->we, data, i + 2);
 	else if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
-		&& str[i] != 'F' && str[i] != 'C' && str[i] != '\0' && str[i] != '0' && str[i] != '1')
+		&& str[i] != 'F' && str[i] != 'C'
+		&& str[i] != '\0' && str[i] != '0' && str[i] != '1')
 		ft_error(data, "Error\nBad id\n");
 	ft_exceptions(str, data, i);
 }
