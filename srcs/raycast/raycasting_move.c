@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:26:11 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:58:06 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:32:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_forward_back(t_data *data)
 	if (data->data_mlx.forward == 1)
 	{
 		if (data->map[(int)(data->ray.posx + (data->ray.dirx
-			* data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
+					* data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
 			data->ray.posx += data->ray.dirx * data->ray.movespeed;
 		if (data->map[(int)(data->ray.posx)][(int)(data->ray.posy +
 					(data->ray.diry * data->ray.movespeed * 2))] == '0')
@@ -26,7 +26,7 @@ void	ft_forward_back(t_data *data)
 	if (data->data_mlx.back == 1)
 	{
 		if (data->map[(int)(data->ray.posx - (data->ray.dirx
-			* data->ray.movespeed * 2))][(int)(data->ray.posy)] == '0')
+					* data->ray.movespeed * 2))][(int)(data->ray.posy)] == '0')
 			data->ray.posx -= data->ray.dirx * data->ray.movespeed;
 		if (data->map[(int)(data->ray.posx)][(int)(data->ray.posy
 			- (data->ray.diry * data->ray.movespeed * 2))] == '0')
@@ -39,7 +39,7 @@ void	ft_left_right(t_data *data)
 	if (data->data_mlx.right == 1)
 	{
 		if (data->map[(int)(data->ray.posx + data->ray.diry
-			* (data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
+				* (data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
 			data->ray.posx += data->ray.diry * data->ray.movespeed;
 		if (data->map[(int)data->ray.posx][(int)(data->ray.posy
 			- data->ray.dirx * (data->ray.movespeed * 2))] == '0')
@@ -48,7 +48,7 @@ void	ft_left_right(t_data *data)
 	if (data->data_mlx.left == 1)
 	{
 		if (data->map[(int)(data->ray.posx - data->ray.diry
-			* (data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
+				* (data->ray.movespeed * 2))][(int)data->ray.posy] == '0')
 			data->ray.posx -= data->ray.diry * data->ray.movespeed;
 		if (data->map[(int)data->ray.posx][(int)(data->ray.posy
 			+ data->ray.dirx * (data->ray.movespeed * 2))] == '0')
