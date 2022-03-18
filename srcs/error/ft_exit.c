@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:54:10 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:52:23 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 15:54:09 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,9 @@ int	ft_exit(t_data *data)
 		mlx_destroy_image(data->data_mlx.mlx_ptr, data->texture[3].img);
 	if (data->data_mlx.mlx_win)
 		mlx_destroy_window(data->data_mlx.mlx_ptr, data->data_mlx.mlx_win);
+	if (data->data_mlx.mlx_ptr)
+		mlx_destroy_display(data->data_mlx.mlx_ptr);
+	if (data->data_mlx.mlx_ptr)
+		free(data->data_mlx.mlx_ptr);
 	exit(0);
 }

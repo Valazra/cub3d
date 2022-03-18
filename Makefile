@@ -2,7 +2,7 @@ NAME = cub3D
 
 # Compile
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -lmlx -lXext -lX11 -lm -lbsd
 INC = -I$(INC_DIR)
 HEADER = $(INC_DIR)/cub3d.h

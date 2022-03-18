@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:23:40 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 14:09:19 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 16:08:29 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,17 @@ void	ft_parsing_file(char *fichier, t_data *data)
 {
 	int		fd;
 	int		ret;
-	char	*str;
 
 	ret = 1;
-	str = NULL;
 	fd = ft_check_file(data, fichier);
 	while (ret != 0)
 	{
-		ret = get_next_line(fd, &str);
-		ft_recup_fc(str, data);
-		ft_parsing_texture(str, data);
-		ft_count_size_and_nb_lines_of_map(str, data);
-		free(str);
+		ret = get_next_line(fd, &data->str_actual_gnl);
+		ft_recup_fc(data->str_actual_gnl, data);
+		ft_parsing_texture(data->str_actual_gnl, data);
+		ft_count_size_and_nb_lines_of_map(data->str_actual_gnl, data);
+		free(data->str_actual_gnl);
+		data->str_actual_gnl = NULL;
 	}
 	close(fd);
 	if (data->sizeline == 0 || data->nblines == 0)

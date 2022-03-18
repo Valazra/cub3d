@@ -6,17 +6,19 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:45:16 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 00:52:34 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:07:44 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free_and_exit(t_data *data)
+int	ft_free_and_exit(t_data *data)
 {
 	int	i;
 
 	i = -1;
+	if (data->str_actual_gnl)
+		free(data->str_actual_gnl);
 	if (data->no)
 		free(data->no);
 	if (data->so)
@@ -33,4 +35,5 @@ void	ft_free_and_exit(t_data *data)
 	if (data->map)
 		free(data->map);
 	ft_exit(data);
+	return (1);
 }

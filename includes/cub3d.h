@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:34:27 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 14:30:18 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/18 12:26:12 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,15 @@ typedef struct s_data
 	int			pos_x;
 	int			pos_y;
 	int			nb_color_code;
+	int			multiplayer;
+	int			wrongcharmap;
 	int			emptyline;
 	int			insidemap;
 	int			rgb;
 	int			r;
 	int			g;
 	int			b;
+	char		*str_actual_gnl;
 	t_data_mlx	texture[4];
 	t_data_mlx	data_mlx;
 	t_ray		ray;
@@ -156,6 +159,7 @@ int		ft_first_line(t_data *data);
 int		ft_surround(t_data *data);
 int		encode_rgb(int red, int green, int blue);
 void	init_data_rgb(t_data *data);
+int		is_there_digit(char c);
 
 //RAYCAST
 int		ft_render(t_data *data);
@@ -169,7 +173,7 @@ int		ft_key_release(int keycode, t_data *data);
 
 //ERROR
 void	ft_error(t_data *data, char *str);
-void	ft_free_and_exit(t_data *data);
+int		ft_free_and_exit(t_data *data);
 int		ft_exit(t_data *data);
 void	ft_parsing_errors(t_data *data);
 

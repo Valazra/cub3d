@@ -6,7 +6,7 @@
 /*   By: user42 <vazra@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 15:25:17 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 13:19:28 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/18 12:40:54 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 void	ft_check_fc2(const char *str, t_data *data, int i, int j)
 {
-	while ((str[i] < '0' || str[i] > '9') && str[i])
-	{
-		if (str[i] == ',')
-			j++;
+	while (str[i] == ' ' || str[i] == '\t')
 		i++;
+	if (str[i] == ',')
+	{
+		i++;
+		j++;
 	}
 	if (j != 2)
 		ft_error(data, "Error\nProblem with F or C\n");
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (!is_there_digit(str[i]))
+		ft_error(data, "Error\nNeed R, G, B values for F or C\n");
 	if (ft_count_nb_virgule(str) != 2)
 		ft_error(data, "Error\nProblem of comma with F or C\n");
 }
@@ -31,8 +36,12 @@ void	ft_check_fc(const char *str, t_data *data)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = data->i;
 	j = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (!is_there_digit(str[i]))
+		ft_error(data, "Error\nNeed R, G, B values for F or C\n");
 	while (str[i] && str[i] != ',')
 		i++;
 	if (str[i] == '\0')
@@ -42,6 +51,8 @@ void	ft_check_fc(const char *str, t_data *data)
 	i++;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
+	if (!is_there_digit(str[i]))
+		ft_error(data, "Error\nNeed R, G, B values for F or C\n");
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
 	ft_check_fc2(str, data, i, j);

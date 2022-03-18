@@ -6,7 +6,7 @@
 /*   By: vazra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:39:28 by vazra             #+#    #+#             */
-/*   Updated: 2022/03/17 14:41:40 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 15:44:40 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	start_mlx(t_data *data)
 {
-	mlx_hook(data->data_mlx.mlx_win, 33, 1L << 17, ft_exit, data);
+	mlx_hook(data->data_mlx.mlx_win, 33, 1L << 17, ft_free_and_exit, data);
 	mlx_hook(data->data_mlx.mlx_win, 2, 1L << 0, ft_key_press, data);
 	mlx_hook(data->data_mlx.mlx_win, 3, 1L << 1, ft_key_release, data);
 	mlx_loop_hook(data->data_mlx.mlx_ptr, ft_render, data);

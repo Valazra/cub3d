@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:20:26 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 12:57:08 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/18 13:25:09 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ int	init_mlx(t_data *data)
 	if (!(data->data_mlx.mlx_ptr))
 		ft_error(data, "Error\nProblem with mlx init\n");
 	mlx_get_screen_size(data->data_mlx.mlx_ptr, &data->res_x, &data->res_y);
+	if (data->res_x > 600 && data->res_y > 600)
+	{
+		data->res_x -= 200;
+		data->res_y -= 100;
+	}
 	ft_get_texture(data);
 	data->data_mlx.img = mlx_new_image(data->data_mlx.mlx_ptr,
 			data->res_x, data->res_y);

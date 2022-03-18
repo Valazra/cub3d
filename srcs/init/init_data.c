@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:05:04 by user42            #+#    #+#             */
-/*   Updated: 2022/03/17 14:30:42 by vazra            ###   ########.fr       */
+/*   Updated: 2022/03/17 16:06:48 by jholl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_init_more(t_data *data)
 	data->texture[2].img = NULL;
 	data->texture[3].img = NULL;
 	data->data_mlx.mlx_win = NULL;
+	data->data_mlx.mlx_ptr = NULL;
 	data->map = NULL;
+	data->str_actual_gnl = NULL;
 }
 
 void	ft_init_data(t_data *data)
@@ -39,6 +41,8 @@ void	ft_init_data(t_data *data)
 	data->sizeline = 0;
 	data->pos_x = 0;
 	data->pos_y = 0;
+	data->multiplayer = 0;
+	data->wrongcharmap = 0;
 	data->emptyline = 0;
 	data->insidemap = 0;
 	data->count = 0;
